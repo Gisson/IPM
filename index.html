@@ -1,0 +1,504 @@
+    <!DOCTYPE HTML>
+    
+    <html>
+        <head>
+            <link rel="stylesheet" href="style.css" type="text/css" />
+            <title>
+                iRave A72
+            </title>
+            
+        </head>
+        
+        <div id="mainScreen">
+            <table>
+                <tr>
+                    <td>
+                        <img id="helpBut" onclick="help()" style="width:0.3in;height:0.3in;" src="98DvXBu.png" align="top">
+                    </td>
+                </tr>
+                </table>
+                <table id="menuTable">
+                <tr>
+                    <td id="middle"> <img id="gOptions" src="Whack-Windows-Live-Messenger-icon.png" style="width:0.5in;height:0.5in;display:none"/></td>
+                </tr>
+                
+                
+                <tr>
+                    <td>
+                        <img id="leftArr" onclick="goLeft()" style="width:0.2in;height:1in;"src="WMP0o4m.png"/>
+                    </td>
+                    <td>
+                        <img id="enterChore" onclick="enterIn()" style="width:0.9in;height:1in" align="bottom" src="Whack-Windows-Live-Messenger-icon.png"/>
+                    </td>
+                    <td>
+                        <img id="rightArr" onclick="goRight()" style="width:0.2in;height:1in;" src="GUgfkDw.png"/>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <button id="return" onclick="goBack()"> &#8592 </button>
+            <body>
+            
+            
+            </body>
+        </div>
+        
+      
+      
+      <script>
+          var currentF="MenuI"
+          var fList=["Jorge","Nuno","Marta"];
+          var muteList=[0,1,0];
+          var Xposition=[0,0.1,0.3];
+          var Yposition=[0.3,0.4,0.2];
+          var fListPos=0;
+          var timeouts=[];
+          var first=true;
+          
+          function help(){
+              
+              if(currentF==="MenuI"){
+                  document.getElementById("enterChore").src="98DvXBu.png";
+              }
+          }
+          
+          function enterIn(){
+              var temp=document.getElementById("enterChore");
+              
+              erase();
+              document.getElementById("helpBut").style.width="1.4in";
+              if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png"){
+                  currentF="Group";
+                  group();
+              }
+             else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png"){
+                  currentF="Map";
+                  Map();
+              }
+              else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.jpeg"){
+                  currentF="Payment";
+                  Payment();
+              }
+              
+              
+          }
+          
+          function goLeft(){
+              var temp=document.getElementById("enterChore");
+              console.log(temp.src);
+              if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png"){
+              temp.src="map-7.png";
+              }
+              else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png"){
+                  temp.src="acceptedatmsymbol_full.jpeg";
+              }
+              else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.jpeg"){
+                  temp.src="Whack-Windows-Live-Messenger-icon.png";
+              }
+          }
+          
+          function goRight(){
+              var temp=document.getElementById("enterChore");
+              if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png"){
+              temp.src="acceptedatmsymbol_full.jpeg";
+              }
+              else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png"){
+                  temp.src="Whack-Windows-Live-Messenger-icon.png";
+              }
+              else if(temp.src==="file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.jpeg"){
+                  temp.src="map-7.png";
+              }
+              else{
+              console.log("Error:bad adress");
+                  
+              }
+              
+          }
+          function erase(){
+            document.getElementById("menuTable").innerHTML="";
+              
+          }
+          
+          function group(){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              row.className= row.className + "buttonMenu";
+              var cell=row.insertCell(0);
+              
+              cell.innerHTML="<img id=gOptionsBut onclick=gTalk() src=talk_bubble.png style=width:0.4in;height:0.4in;border:1px solid black; />";
+              
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gSearchBut onclick=gFind() src=magnifying.png style=width:0.4in;height:0.4in;border:1px solid black; />";
+              
+              row=document.getElementById("menuTable").insertRow(0);
+              row.className = row.className + "buttonMenu";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gListBut  src=contact_list.jpg style=width:0.4in;height:0.4in;border:1px solid black; />";
+              cell.onclick=function(){currentF="gList"; showfList();};
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gTalkBut onclick=gOptions() src=options.png style=width:0.4in;height:0.4in; />";
+              
+          }
+          
+          function goToMain(){
+                var temp=document.getElementById("helpBut");
+                var row;
+                var cell;
+                erase();
+                temp.style.width="0.3in";
+                temp.style.height="0.3in";
+                row=document.getElementById("menuTable").insertRow(0);
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=rightArr onclick=goRight() style=width:0.2in;height:1in; src=GUgfkDw.png />"
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=enterChore onclick=enterIn() style=width:0.9in;height:1in align=bottom src=Whack-Windows-Live-Messenger-icon.png />"
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=leftArr onclick=goLeft() style=width:0.2in;height:1in; src=WMP0o4m.png />"
+                
+          }
+          
+          function goBack(){
+              
+              fListPos=0;
+              for (var i=0; i<timeouts.length; i++) {
+                  clearTimeout(timeouts[i]);
+                }
+              
+              if(currentF==="Group"){
+                  goToMain();
+                  currentF="MenuI";
+              }
+              else if(currentF==="Map"){
+                  goToMain();
+                  document.getElementById("enterChore").src="map-7.png";
+                  currentF="MenuI";
+              }
+              else if(currentF==="Payment"){
+                  goToMain();
+                  document.getElementById("enterChore").src="acceptedatmsymbol_full.jpeg";
+                  currentF="MenuI";
+                  
+              }
+              else if(currentF==="gOptions" || currentF==="gFind" || currentF==="gTalk" || currentF==="gList"){
+                  erase();
+                  group();
+                  currentF="Group";
+              }
+              else if(currentF==="gRemove" || currentF==="gAdd" || currentF==="gMute" ){
+                  erase();
+                  gOptions();
+              }
+          }
+          
+          function gOptions(){
+              if(first){
+                  window.setTimeout(function(){receiveMensage(0,"Vem ter comigo");},3000);
+                  first=false;
+              }
+              erase();
+              currentF="gOptions";
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img id=gRemoveBut onclick=gRemove() src=remove.jpg style=width:0.5in;height:0.5in;border:1px solid black; />";
+              document.getElementById("gRemoveBut").style.border="1px solid black";
+              if(fList.length===0){
+                  document.getElementById("gRemoveBut").style.display="none";
+                  cell.style.border="none";
+              }
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gAddBut onclick=gAdd() src=add.jpeg style=width:0.5in;height:0.5in;border:1px solid black; />";
+              document.getElementById("gAddBut").style.border="1px solid black";
+              row=document.getElementById("menuTable").insertRow(0);
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gMuteBut onclick=gMute() src=mute.png style=width:0.5in;height:0.5in; />";
+              document.getElementById("gMuteBut").style.border="1px solid black";
+              if(fList.length===0){
+                  document.getElementById("gMuteBut").style.display="none";
+                  cell.style.border="none";
+              }
+              
+          }
+          
+          function Map(){
+              erase();
+              currentF="Map";
+          }
+          
+          function gFind(){
+              erase();
+              currentF="gFind";
+              showfList();
+          }
+          function gTalk(){
+              erase();
+              currentF="gTalk";
+              showfList();
+          }
+          
+          function Payment(){
+              erase();
+              currentF="Payment";
+          }
+          
+          function gAdd(){
+              var timeoutID;
+              erase();
+              currentF="gAdd";
+              document.getElementById("menuTable").innerHTML="<h1 id=waitConnect style=font-size:1em> Por favor aproxime o seu iRave ao do seu amigo</h1><img id=loadingBar src=loading_bar.gif style=width:1.4in /> ";
+              timeoutID=window.setTimeout(cancelAdd,3000);
+              timeouts.push(timeoutID);
+              document.getElementById("loadingBar").onclick=function(){window.clearTimeout(timeoutID); confirmAdd();};
+          }
+          function gRemove(){
+              erase();
+              currentF="gRemove";
+              showfList();
+          }
+          function gMute(){
+              erase();
+              currentF="gMute";
+              showfList();
+              
+          }
+          
+          function confirmAdd(){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var fName=getName();
+              cell.innerHTML="<img onclick=cancelAdd() src=Delete.png style=width:0.4in;height:0.3in; />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptBut src=accept-icon.gif style=width:0.4in;height:0.3in; />";
+              document.getElementById("acceptBut").onclick=function(){acceptAdd(fName);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.innerHTML="<h1 id=confirmConnect style=font-size:0.8em>Confirma "+fName+" como seu amigo?</h1>";
+          }
+          
+          function cancelAdd(){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+
+              cell.innerHTML="<h1 id=failedConnect style=font-size:1em>Insucesso a adicionar amigo.</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+              
+              
+          }
+          
+          function acceptAdd(fName){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              fList.push(fName);
+              muteList.push(0);
+              Xposition.push(Math.random());
+              Yposition.push(Math.random());
+              cell.innerHTML="<h1 id=failedConnect style=font-size:1em>Sucesso a adicionar amigo.</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+              
+          }
+          
+          function showfList(){
+              erase();
+              if(fList.length<=0){
+                  document.getElementById("menuTable").innerHTML="<h1 style=font-size:1em>Nao tem amigos.\n Adicione agora.</h1> <img id=gAddBut onclick=gAdd() src=add.jpeg style=width:0.5in;height:0.5in;margin-left:0.5in; />";
+                  document.getElementById("gAddBut").style.border="1px solid black;";
+                  
+              }
+              else{
+                      var row=document.getElementById("menuTable").insertRow(0);
+                      var cell=row.insertCell(0);
+                      var img=document.createElement("img");
+                      img.src="GUgfkDw.png";
+                      img.style.width="width:0.2in";
+                      img.style.height="1in";
+                      img.style.marginLeft="0.2in";
+                      img.style.marginTop="0in";
+                      img.onclick = function() {goRightOnFList();};
+                      if(fList.length<4 || fListPos+3>=fList.length){
+                          img.style.display="none";
+                      }
+                      cell.appendChild(img);
+                      cell=row.insertCell(0);
+                      cell.id="fList";
+                  for(var i=fListPos;i<fList.length;i++){
+                      var p=document.createElement("p");
+                      p.id=i;
+                      p.style.border="1px solid black";
+                      p.style.marginTop="0px";
+                      if(muteList[i]===0){
+                      p.innerHTML=fList[i];
+                      }
+                      else{
+                          p.innerHTML=fList[i]+"<img style=width:0.1in;height:0.1in;align:bottom; src=mute.png />";
+                      }
+                      p.onclick = function(){ friendAction(this.id); };
+                      if(i<fListPos+3){
+                      cell.appendChild(p);
+                      }
+                  }
+                  cell=row.insertCell(0);
+                  img=document.createElement("img");
+                  img.src="WMP0o4m.png";
+                  img.style.height="1in";
+                  img.style.width="0.2in";
+                  img.onclick=function () {goLeftOnFList();};
+                  if(fListPos>0){
+                      cell.appendChild(img);
+                  }
+                 
+              }
+          }
+          
+          function goRightOnFList(){
+              erase();
+              fListPos+=3;
+              showfList();
+          }
+          
+          function goLeftOnFList(){
+              erase();
+              fListPos-=3;
+              showfList();
+          }
+          
+          
+          function getName(){
+              var names=["Joao","Maria","Soraia","Joana","Marta","Nuno"];
+              return names[Math.ceil(Math.random()*5)];
+          }
+          
+          function friendAction(id){
+              if(currentF==="gRemove"){
+                  
+                  confirmRemove(id);
+              }
+              
+              if(currentF==="gMute"){
+                  confirmMute(id);
+              }
+              if(currentF==="gTalk"){
+                  chooseMensage();
+              }
+              if(currentF==="gFind"){
+                showInMap(id);
+              }
+          }
+          
+          function confirmRemove(id){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var name=fList[id];
+              cell.innerHTML="<img onclick=goBack() src=the-green-cross-code.png style=width:0.4in;height:0.3in; />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptRemoveBut src=red-tick.png style=width:0.4in;height:0.3in; />";
+              document.getElementById("acceptRemoveBut").onclick=function(){acceptRemove(name);fList.splice(id,1);muteList.splice(id,1);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.innerHTML="<h1 id=confirmRemove style=font-size:0.7em>Deseja remover "+fList[id]+"?</h1>";
+          }
+          
+          function acceptRemove(fName){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<h1 id=successRemove style=font-size:1em>Sucesso a remover "+fName+".</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+          }
+          
+          function confirmMute(id){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var name=fList[id];
+              cell.innerHTML="<img onclick=goBack() src=Delete.png style=width:0.4in;height:0.3in; />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptMuteBut src=accept-icon.gif style=width:0.4in;height:0.3in; />";
+              document.getElementById("acceptMuteBut").onclick=function(){acceptMute(id);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              if(muteList[id]===0){
+                  cell.innerHTML="<h1 id=confirmRemove style=font-size:0.7em>Deseja silenciar "+fList[id]+"?</h1>";
+              }
+              else{
+                  cell.innerHTML="<h1 id=confirmRemove style=font-size:0.65em>Deseja desilenciar "+fList[id]+"?</h1>";
+              }
+          }
+          
+          function acceptMute(id){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              if(muteList[id]===0){
+                  cell.innerHTML="<h1 id=successMute style=font-size:1em>Sucesso a silenciar "+fList[id]+".</h1>";
+                  muteList[id]=1;
+              }
+              else{
+                    cell.innerHTML="<h1 id=successUnmute style=font-size:1em>Sucesso a desilenciar "+fList[id]+".</h1>";
+                    muteList[id]=0;
+              }
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID); 
+          }
+          
+          
+          function chooseMensage(){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<p onclick=sendMensage()>Vem ter comigo</p> <p onclick=sendMensage()>Vou embora</p> <p onclick=sendMensage()>Preciso de ajuda!</p>";
+          }
+          
+          function sendMensage(){
+              erase();
+              var timeoutID;
+              document.getElementById("menuTable").innerHTML="Mensagem enviada";
+              timeoutID=window.setTimeout(group,3000);
+              timeouts.push(timeoutID);
+          }
+          
+          function receiveMensage(from,mensage){
+              if(muteList[from]===0){
+                erase();
+                var tab=document.getElementById("menuTable");
+                tab.innerHTML="<p style=font-size:1em;color:blue;margin-top:0in> Mensagem recebida de "+fList[from]+"!</p><p>"+mensage+"</p> <p><button onclick=chooseMensage() style=width:1in>Responder</button></p>";
+                
+              }
+          }
+
+          function showInMap(friendID){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img src=mapa2.png style=width:1.45in;height:1.1in; />";
+              var newImg=document.createElement("img");
+              newImg.className="overlay";
+              newImg.src="Delete.png";
+              newImg.style.width="0.2in";
+              newImg.style.height="0.2in";
+              newImg.style.left=String(Xposition[friendID]+0.3)+"in";
+              newImg.style.top=String(Yposition[friendID]+0.3)+"in";
+              cell.appendChild(newImg);
+              
+          }
+      </script>
+        
+        
+    </html>
