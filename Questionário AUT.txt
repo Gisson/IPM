@@ -1,0 +1,202 @@
+﻿Interface Pessoa-Máquina 2014-2015
+Questionário para Análise de Utilizadores e Tarefas
+iRave
+
+
+Grupo 72:
+Marta Cardoso, nº 78230
+Jorge Heleno, nº 79042
+Nuno Pais, nº 62449
+
+
+Introdução
+Este questionário enquadra-se na análise de utilizadores e tarefas do iRave, um wearable touch a substituir as atuais pulseiras utilizadas para controlar as entradas nos festivais de música de Verão, como o Rock In Rio, MEO Sudoeste e NOS Alive.
+Este questionário demora apenas 7 minutos.
+Obrigado pela sua contribuição!
+
+
+1. Caracterização do utilizador
+1. Sexo:
+        □ Masculino 
+□ Feminino 
+□ Intersexo 
+
+
+2. Idade:
+        □ menos de 18 anos
+        □ 18 - 30 anos
+        □ 31 - 40 anos
+        □ 41 - 50 anos
+        □ mais de 50 anos
+
+
+3. Habilitações:
+□ 4º ano        
+□ 9º ano
+□ Ensino secundário
+□ Ensino Superior
+
+
+4. Com que frequência vai a festivais?
+        □ Nunca fui a festivais
+        □ Menos de uma vez por ano
+        □ Uma vez por ano
+        □ Várias vezes por ano
+
+
+5. Se costuma ir a festivais, vai sozinho/a ou em grupo?
+        □ Sozinho/a
+        □ Em grupos pequenos (até 4 pessoas)
+        □ Em grupos grandes (5 ou mais pessoas)
+
+
+II. Situação atual
+
+
+6. Como comunica com as pessoas que o/a acompanham?
+        □ Por mensagem
+        □ Por chamada
+        □ Por contacto direto
+        □ Video chamada
+
+
+7.  Como caracteriza o ambiente? [sim/não]
+        □ Ruidoso
+        □ Pouco iluminado
+        □ Orientado à família
+        □ Lotado
+□ Perigoso/violento
+
+
+8. Como costuma aprender a usar aparelhos eletrónicos? (escolha apenas uma opção)
+        □ Com ajuda de familiares/amigos
+        □ Através do manual do utilizador
+        □ Através de outra informação não-oficial (tutoriais, dicas, artigos, etc)
+        □ Sozinho, por experimentação
+
+
+9. Que experiência tem com tecnologias touch (com ecrã de toque)?
+        □ Nenhuma, nunca tive equipamentos com ecrã de toque
+        □ Pouca, não sei usar bem um equipamento touch
+        □ Alguma, tive/tenho pelo menos um equipamento touch
+        □ Muita, tive/tenho vários equipamentos touch e sei usá-los bem
+
+
+10. Com que frequência consulta o mapa do recinto do festival durante o evento?
+        □ Raramente
+        □ Algumas vezes
+        □ Frequentemente 
+
+
+11. Como faz para evitar que perca os eventos que quer assistir/participar?
+        □ Não uso nada
+        □ Alarme (telemóvel, relógio, etc)
+        □ Serviços externos (chamadas, aviso organização, amigos, etc)
+        □ Outros
+
+
+12. Tira fotografias em festivais?
+        □ Sim
+        □ Não
+        □ Raramente
+
+
+13. Com que frequência consulta o programa de bandas/artistas durante o festival?
+□ Raramente
+        □ Algumas vezes
+        □ Frequentemente
+
+
+14. Que equipamentos costuma usar durante um festival?
+□ Telemóvel sem acesso à internet
+        □ Tablet
+        □ Câmara fotográfica e/ou de filmar
+□ Portátil
+□ Smartphone
+□ Outro
+
+
+15. Selecione as ações que realiza no recinto do festival.
+□ Ver o mapa do recinto
+        □ Ver o programa do evento
+        □ Comprar comida e/ou bebida
+□ Comprar merchandising (t-shirts, CDs, etc)
+□ Ir às atividades lúdicas (desportos radicais, concursos, etc)
+□ Outro
+
+
+16. Indique, de 1 a 7, as instalações que mais procura durante um festival, sendo 1 a que mais procura e 7 a que menos procura.
+        __ Casas de banho
+        __ Bar/cafés
+        __ Palcos (principais e/ou secundários)
+        __ Atividades lúdicas no recinto
+        __ Entradas/saídas
+        __ Primeiros socorros
+        __ Acampamento
+      17. Em caso de cometer erro enquanto a fazer uma tarefa no seu smartphone como procede(escolha só uma).
+        □ Volto para trás
+        □ Desligo o smartphone
+        □ Peço ajuda
+
+
+III. Funcionalidades
+Nesta secção, iremos apresentar várias funcionalidades possíveis do iRave. Deverá responder a cada pergunta como se o iRave tivesse apenas essa funcionalidade e nenhuma das anteriores ou seguintes.
+
+
+18. Se o iRave lhe permitisse guardar localizações favoritas (como por exemplo a posição da tenda no acampamento) e depois mostrá-las num mapa do recinto e do acampamento, consideraria útil?
+        □ Sim
+        □ Não
+        □ Não sei
+
+
+19. Usaria o iRave para consultar o programa do evento?
+□ Sim
+        □ Não, consultaria o programa de outra forma
+        □ Não costumo consultar o programa
+
+
+ 20. Usaria o iRave para consultar a localização de várias instalações (palcos, casas de banho, bares, etc) dentro do recinto e acampamento?
+            □ Sim
+        □ Não, consultaria de outra forma
+        □ Não costumo consultar a localização das instalações
+
+
+21. Imagine uma funcionalidade de consumo eletrónico, eliminando a necessidade de pagar com dinheiro e/ou cartões dentro do recinto e reduzindo o uso de máquinas multibanco. O iRave seria carregado com uma determinada quantia à entrega do mesmo ao cliente, e funcionaria num sistema de pré-pagamento. Seria também possível consultar o consumo a qualquer altura do evento. Considera que seria mais prático que o sistema atual (pagamento com dinheiro/cartões)?
+        □ Sim, preferia usar este sistema.
+□ Não, preferia usar dinheiro/cartões.
+
+
+22. Imagine que vai ao evento em conjunto com outras pessoas, e que o iRave dispõe de uma funcionalidade ‘grupo’ que permite a comunicação dentro dum grupo pré-definido de utilizadores de iRave (escolhidos por si): recebe a localização de outros membros do grupo, envia mensagens padrão aos outros membros, e envia a sua localização ao grupo. Usaria esta funcionalidade?
+□ Sim
+        □ Não
+        
+23. Ainda imaginando que o iRave dispõe da funcionalidade ‘grupo’: classifique as mensagens padrão seguintes de 1 a 5, sendo 1 nada importante e 5 muito importante:
+        __ Marcar ponto de encontro (hora + local)
+        __ Enviar localização
+        __ Pedir localização de outra pessoa
+        __ Pedido de ajuda
+
+
+24. Usaria o iRave se este tivesse uma funcionalidade ‘lanterna’ em que o ecrã se ilumina na sua totalidade?
+□ Sim
+        □ Não
+
+
+25. Imagine que o iRave poderia gravar parte de uma música que está a ouvir e identificar o artista e o nome da música. Usaria esta funcionalidade?
+□ Sim
+        □ Não
+
+
+26. Imagine que o iRave dispõe de um medidor da taxa de álcool no sangue, que emite um aviso quando o nível de álcool no sangue se aproxima do limite estabelecido por lei. Considera esta funcionalidade útil?
+□ Sim
+□ Não
+
+
+27. Pensando em todas as funcionalidades apresentadas, classifique de 1 a 5 de acordo com a sua preferência pessoal, sendo 1 a que menos prefere e 5 a que mais prefere. 
+__ Mapa
+__ Programa
+__ Pagamento eletrónico
+__ Lanterna
+__ Reconhecimento música
+__ Álcool no sangue
+__ Grupo

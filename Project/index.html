@@ -1,0 +1,1162 @@
+    <!DOCTYPE HTML>
+    
+    <html>
+        <head>
+            <link rel="stylesheet" href="style.css" type="text/css" />
+            <meta charset="utf-8"/>
+  <script src="jquery-1.10.2.js"></script>
+  <script src="jquery-ui.js"></script>
+            <title>
+                iRave A72
+            </title>
+            
+        </head>
+        
+        <div id="mainScreen">
+            <table id="title">
+                <tr class="menuDesc">
+                    <td>
+                        <img id="helpBut" onclick="help()" src="98DvXBu.png">
+                    </td>
+                    <td>
+                      <p class="menuDesc" id="menuName" style="font-size:12pt;font-family:Arial;">Menu grupo</p>
+                    </td>
+
+                </tr>
+             </table>
+                <table id="menuTable">
+                <tr>
+                    <td id="middle"> <img id="gOptions" src="Whack-Windows-Live-Messenger-icon.png"/></td>
+                </tr>
+                
+                
+                <tr>
+                    <td>
+                        <img class="arrow" id="leftArr" onclick="goLeft()" onmouseover="putBorder(this)" onmouseout="takeBorder(this)" src="WMP0o4m.png"/>
+                    </td>
+                    <td>
+                        <img class="mainButton" id="enterChore" onclick="enterIn()" onmouseover="putBorder(this)" onmouseout="takeBorder(this)"  src="Whack-Windows-Live-Messenger-icon.png"/>
+                    </td>
+                    <td>
+                        <img class="arrow" id="rightArr" onclick="goRight()" onmouseover="putBorder(this)" onmouseout="takeBorder(this)" src="GUgfkDw.png"/>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <button id="return" onclick="goBack()"> &#8592 </button>
+        <button id="homeBut" onclick="home()"><span style="font-size:10pt">&#x2302</span></button>
+            <body>
+            
+            
+            </body>
+        </div>
+        
+      
+      
+      <script>
+          var currentF="MenuI";
+          var fList=["Jorge","Nuno","Marta"];
+          var msgList=["Jorge//Vem ter comigo "];
+          var muteList=[0,1,0];
+          var Xposition=[0,0.1,0.3];
+          var Yposition=[0.3,0.4,0.2];
+          var favPlaces=["Boozebar","Iron merchs","Body paint"];
+          var favPlacesX=[0,0.2,0.5];
+          var favPlacesY=[0.3,0.4,0.3];
+          var payments=["Carregamento +20€"];
+          var fListPos=0;
+          var timeouts=[];
+          var currentPosition=[0.2,0.5]
+          var first=true;
+          var balanceVal=20;
+          var productStock=["Cerveja","Batatas","Cajus","Cerveja"];
+          var prices=[1,1.2,1.3,1];
+          
+          function help(){
+              
+              if(currentF==="MenuI"){
+                  putBorder(document.getElementById("rightArr"));
+                  setTimeout("goRight()",500);
+                  setTimeout("takeBorderRightArr()",1000);
+                  setTimeout("putBorderLeftArr()",1500);
+                  setTimeout("goLeft()",2000);
+                  setTimeout("takeBorderLeftArr()",2500);
+              }
+              
+          }
+          
+          function takeBorderRightArr(){
+	    takeBorder(document.getElementById("rightArr"));
+          }
+          
+          function putBorderLeftArr(){
+	    putBorder(document.getElementById("leftArr"));
+          }
+          
+          function takeBorderLeftArr(){
+	    takeBorder(document.getElementById("leftArr"));
+          }
+          
+          function takeBorder(obj){
+              obj.style.backgroundColor="transparent";
+              
+          }
+          
+          function putBorder(obj){
+           obj.style.backgroundColor="#81F2EE";   
+          }
+          function enterIn(){
+              var temp=document.getElementById("enterChore");
+              document.getElementById("helpBut").style.display="none";
+              $(document.getElementById("menuTable")).fadeOut("fast",function(){
+                             erase();
+              if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png")){
+                  currentF="Group";
+                  group();
+              }
+             else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png")){
+                  currentF="Map";
+                  Map();
+              }
+              else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.png")){
+                  currentF="Payment";
+                  Payment();
+              } });
+              $(document.getElementById("menuTable")).fadeIn("fast");
+
+              
+              
+          }
+          
+          function goLeft(){
+              var temp=document.getElementById("enterChore");
+              console.log(temp.src);
+              if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png")){
+              $(temp).fadeOut("fast",function(){temp.src="map-7.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu mapa";});
+              
+              }
+              else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png")){
+                $(temp).fadeOut("fast",function(){temp.src="acceptedatmsymbol_full.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu pagar";});
+                  
+              }
+              else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.png")){
+                $(temp).fadeOut("fast",function(){temp.src="Whack-Windows-Live-Messenger-icon.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu grupo";});
+                  
+              }
+          }
+          
+          function goRight(){
+              var temp=document.getElementById("enterChore");
+              if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/Whack-Windows-Live-Messenger-icon.png")){
+              $(temp).fadeOut("fast",function(){temp.src="acceptedatmsymbol_full.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu pagar";});
+              
+              }
+              else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/map-7.png")){
+                $(temp).fadeOut("fast",function(){temp.src="Whack-Windows-Live-Messenger-icon.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu grupo";});
+                  
+              }
+              else if(getSrc(temp.src)===getSrc("file:///D:/Users/Jorge/Desktop/cenas/Jorge/Github/IPM/IPM/acceptedatmsymbol_full.png")){
+                $(temp).fadeOut("fast",function(){temp.src="map-7.png";$(temp).fadeIn();document.getElementById("menuName").innerHTML="Menu mapa";});
+                  
+              }
+              else{
+              console.log("Error:bad adress");
+                  
+              }
+              
+          }
+          function erase(){
+            document.getElementById("menuTable").innerHTML="";
+              
+          }
+          
+          function group(){
+              erase();
+              document.getElementById("menuName").innerHTML="Menu grupo";
+              document.getElementById("menuName").style.color="Black";
+              
+              var row=document.getElementById("menuTable").insertRow(0);
+              row.className= row.className + "buttonMenu";
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img class=optionsButton id=gOptionsBut src=talk_bubble.png onclick=gTalk() onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              
+              cell=row.insertCell(0);
+              cell.innerHTML="<img class=optionsButton id=gSearchBut onclick=gFind() src=magnifying.png  onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              
+              row=document.getElementById("menuTable").insertRow(0);
+              row.className = row.className + "buttonMenu";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img class=optionsButton id=gListBut  src=contact_list.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              cell.onclick=function(){currentF="gList"; document.getElementById("menuName").innerHTML="Ver grupo"; showfList();};
+              cell=row.insertCell(0);
+              cell.innerHTML="<img class=optionsButton id=gTalkBut onclick=gOptions() src=gOptions.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              
+          }
+          
+          function goToMain(){
+                var row;
+                var cell;
+                erase();
+                document.getElementById("menuName").style.color="Black";
+                document.getElementById("menuName").innerHTML="Menu grupo";
+                row=document.getElementById("menuTable").insertRow(0);
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=rightArr class=arrow onclick=goRight() style=cursor:pointer; src=GUgfkDw.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />"
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=enterChore class=mainButton onclick=enterIn() style=cursor:pointer; src=Whack-Windows-Live-Messenger-icon.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />"
+                cell=row.insertCell(0);
+                cell.innerHTML="<img id=leftArr class=arrow onclick=goLeft() style=cursor:pointer; src=WMP0o4m.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />"
+                
+          }
+          
+          function goBack(){
+
+              fListPos=0;
+              for (var i=0; i<timeouts.length; i++) {
+                  clearTimeout(timeouts[i]);
+                }
+                $(document.getElementById("menuTable")).fadeOut("fast",function(){
+                   if(currentF==="Group"){
+                  goToMain();
+                  document.getElementById("menuName").innerHTML="Menu grupo";
+                  currentF="MenuI";
+                  document.getElementById("menuName").style.color="Black";
+                  document.getElementById("helpBut").style.display="inline";
+              }
+              else if(currentF==="MenuI"){
+                  goToMain();
+              }
+              else if(currentF==="Map"){
+                  goToMain();
+                  document.getElementById("enterChore").src="map-7.png";
+                  document.getElementById("menuName").style.color="Black";
+                   document.getElementById("menuName").innerHTML="Menu mapa";
+                  currentF="MenuI";
+                  document.getElementById("helpBut").style.display="inline";
+              }
+              else if(currentF==="Payment"){
+                  goToMain();
+                  document.getElementById("menuName").style.color="Black";
+                  document.getElementById("enterChore").src="acceptedatmsymbol_full.png";
+                   document.getElementById("menuName").innerHTML="Menu pagar";
+                  currentF="MenuI";
+                  document.getElementById("helpBut").style.display="inline";
+
+              }
+              else if(currentF==="gOptions" || currentF==="gFind" || currentF==="gTalk" || currentF==="gList"){
+                  erase();
+                  group();
+                  currentF="Group";
+              }
+              else if(currentF==="gRemove" || currentF==="gAdd" || currentF==="gMute" ){
+                  erase();
+                  gOptions();
+              }
+              else if(currentF==="MapOpt" || currentF==="favAdd" || currentF==="favRem" || currentF==="favSee" || currentF==="catFav"){
+                  erase();
+                  showMapOpt();
+                  currentF="Map";
+
+              }
+              
+              else if(currentF==="balance" || currentF==="pay" || currentF==="consult"){
+                  erase();
+                  Payment();
+              }
+              else if(currentF==="findLocal"){
+                  erase();
+                  mapFind();
+                  document.getElementById("menuName").innerHTML="Procurar";
+                  currentF="catFav";
+              }
+                });
+            $(document.getElementById("menuTable")).fadeIn("fast");
+             
+          }
+          
+          function gOptions(){
+            $(document.getElementById("menuTable")).fadeOut("fast",function(){
+            document.getElementById("menuName").style.color="Black";
+              document.getElementById("menuName").innerHTML="Gerir grupo"
+              erase();
+              currentF="gOptions";
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img id=gRemoveBut style=cursor:pointer;width:0.5in;height:0.5in; onclick=gRemove() src=Delete.png onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              if(fList.length===0){
+                  document.getElementById("gRemoveBut").style.display="none";
+                  cell.style.border="none";
+              }
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=gAddBut onclick=gAdd() src=add.png style=cursor:pointer;width:0.5in;height:0.5in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              row=document.getElementById("menuTable").insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              cell.innerHTML="<img id=gMuteBut onclick=gMute() src=mute.png style=cursor:pointer;width:0.5in;height:0.5in;margin-left:0.5in;  onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              if(fList.length===0){
+                  document.getElementById("gMuteBut").style.display="none";
+                  cell.style.border="none";
+              }
+            });
+
+              $(document.getElementById("menuTable")).fadeIn("fast");
+          }
+          
+          function Map(){
+              erase();
+              currentF="Map";
+              document.getElementById("menuName").innerHTML="Menu mapa";
+              showMapOpt();
+          }
+          
+          function gFind(){
+              erase();
+              currentF="gFind";
+              document.getElementById("menuName").innerHTML="Localizar amigo";
+              showfList();
+          }
+          function gTalk(){
+              erase();
+              currentF="gTalk";
+              document.getElementById("menuName").innerHTML="Mandar msg";              
+              showfList();
+          }
+          
+          function Payment(){
+              erase();
+              currentF="Payment";
+              document.getElementById("menuName").innerHTML="Menu pagar";
+              var row=document.getElementById("menuTable").insertRow(0);
+              row.className = row.className + "buttonMenu";
+              var cell=row.insertCell(0);
+              cell.className = cell.className + "optionsButton";
+              cell.innerHTML="<img class=optionsButton id=payment onclick=pay() onmouseout=takeBorder(this) onmouseover=putBorder(this) src=pay.png style=cursor:pointer />";
+             
+
+              cell=row.insertCell(0);
+              cell.style.width="0.45in";
+              cell.innerHTML="<img class=optionsButton id=payment onclick=consult() onmouseout=takeBorder(this) onmouseover=putBorder(this) src=transactions.png />";
+              
+              row=document.getElementById("menuTable").insertRow(0);
+              row.className = row.className + "buttonMenu";
+              cell=row.insertCell(0);
+              
+	            cell.colSpan="2";
+              cell.innerHTML="<p id=balance onclick=balance() onmouseout=takeBorder(this) onmouseover=putBorder(this) style=font-size:16pt;margin-top:0px;margin-bottom:0px;padding:0px;cursor:pointer;color:green >Saldo: "+balanceVal.toFixed(2)+"€ </p>";
+              
+          }
+          
+          function gAdd(){
+              var timeoutID;
+              erase();
+              currentF="gAdd";
+              document.getElementById("menuName").innerHTML="Adicionar amigo"
+              document.getElementById("menuTable").innerHTML="<h1 id=waitConnect style=font-size:1em;font-family:serif> Por favor aproxime o seu iRave ao do seu amigo</h1><img id=loadingBar src=loading_bar.gif style=width:1.4in /> ";
+              timeoutID=window.setTimeout(cancelAdd,3000);
+              timeouts.push(timeoutID);
+              document.getElementById("loadingBar").onclick=function(){window.clearTimeout(timeoutID); confirmAdd();};
+          }
+          function gRemove(){
+              erase();
+              currentF="gRemove";
+              document.getElementById("menuName").innerHTML="Eliminar amigo";
+              showfList();
+          }
+          function gMute(){
+              erase();
+              document.getElementById("menuName").innerHTML="Silenciar amigo";
+              currentF="gMute";
+              showfList();
+              
+          }
+          
+          function confirmAdd(){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var fName=getName();
+              cell.innerHTML="<img onclick=cancelAdd() src=delete_old.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptBut src=tick.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("acceptBut").onclick=function(){acceptAdd(fName);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              cell.innerHTML="<h1 id=confirmConnect style=font-size:12pt;font-family:Arial>Confirma "+fName+" como seu amigo?</h1>";
+          }
+          
+          function cancelAdd(){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+
+              cell.innerHTML="<h1 id=failedConnect style=font-size:12pt;font-family:Arial;>Insucesso a adicionar amigo.</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+              
+              
+          }
+          
+          function acceptAdd(fName){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              fList.push(fName);
+              muteList.push(0);
+              Xposition.push(Math.random());
+              Yposition.push(Math.random());
+              cell.innerHTML="<h1 id=failedConnect style=font-size:12pt;color:Green:font-family:Arial>Sucesso a adicionar amigo.</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+              
+          }
+          
+          function showfList(){
+              $(document.getElementById("menuTable")).fadeOut("fast",function(){
+              erase();
+              if(fList.length<=0){
+                  document.getElementById("menuTable").innerHTML="<h1 style=font-size:1em>Nao tem amigos.\n Adicione agora.</h1> <img id=gAddBut onclick=gAdd() src=add.png style=width:0.5in;height:0.5in;margin-left:0.5in;font-family:Arial;font-size:12pt />";
+                  
+              }
+              else{
+                      var row=document.getElementById("menuTable").insertRow(0);
+                      var cell=row.insertCell(0);
+                      var img=document.createElement("img");
+                      img.className="arrow";
+                      img.src="GUgfkDw.png";
+                      img.style.marginLeft="0.2in";
+                      img.style.marginTop="0in";
+                      img.onclick = function() {goRightOnFList();};
+                      if(fList.length<4 || fListPos+3>=fList.length){
+                          img.style.display="none";
+                      }
+                      cell.appendChild(img);
+                      cell=row.insertCell(0);
+                      cell.id="fList";
+                  for(var i=fListPos;i<fList.length;i++){
+                      var p=document.createElement("p");
+                      p.id=i;
+                      p.style.marginTop="0px";
+                      p.style.fontSize="12pt";
+                      p.style.fontFamily="sans-serif";
+                      if(muteList[i]===0){
+                      p.innerHTML=fList[i];
+                      }
+                      else{
+                          p.innerHTML=fList[i]+"<img  style=width:0.15in;height:0.15in;align:bottom; src=mute_old.png />";
+                      }
+                      if(currentF!="gList"){
+                      p.style.cursor="pointer";
+                      p.addEventListener("mouseover", function(){this.style.color="red";});
+                      p.addEventListener("mouseout",function(){this.style.color="black";});
+                      p.style.border="1px solid black";
+                      p.onclick = function(){ friendAction(this.id); };
+                    }
+                      if(i<fListPos+3){
+                      cell.appendChild(p);
+                      }
+                  }
+                  cell=row.insertCell(0);
+                  img=document.createElement("img");
+                  img.src="WMP0o4m.png";
+                  img.className="arrow";
+                  img.onclick=function () {goLeftOnFList();};
+                  if(fListPos>0){
+                      cell.appendChild(img);
+                  }
+                 
+              }
+              });
+            $(document.getElementById("menuTable")).fadeIn("fast");
+
+          }
+          
+          function goRightOnFList(){
+              erase();
+              fListPos+=3;
+              showfList();
+          }
+          
+          function goLeftOnFList(){
+              erase();
+              fListPos-=3;
+              showfList();
+          }
+          
+          
+          function getName(){
+              var names=["Joao","Maria","Pedro","Joana","Marta","Nuno","José"];
+              return names[Math.ceil(Math.random()*6)];
+          }
+          
+          function friendAction(id){
+              if(currentF==="gRemove"){
+                  
+                  confirmRemove(id);
+              }
+              
+              if(currentF==="gMute"){
+                  confirmMute(id);
+              }
+              if(currentF==="gTalk"){
+                  chooseMensage();
+              }
+              if(currentF==="gFind"){
+                showInMap(id);
+              }
+          }
+          
+          function confirmRemove(id){
+              erase();
+              var temp=document.getElementById("menuTable");
+              document.getElementById("menuName").style.color="Red";
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var name=fList[id];
+              cell.innerHTML="<img id=accept src=delete_old.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("accept").onclick=function(){document.getElementById("menuName").style.color="Blue";goBack();};
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptRemoveBut src=tick.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("acceptRemoveBut").onclick=function(){acceptRemove(name);fList.splice(id,1);muteList.splice(id,1);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              cell.innerHTML="<h1 id=confirmRemove style=font-size:12pt;font-family:Arial;>Deseja remover "+fList[id]+"?</h1>";
+          }
+          
+          function acceptRemove(fName){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<h1 id=successRemove style=font-size:12pt;font-family:Arial;>Sucesso a remover "+fName+".</h1>";
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID);
+          }
+          
+          function confirmMute(id){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var name=fList[id];
+              cell.innerHTML="<img onclick=goBack() src=delete_old.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptMuteBut src=tick.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("acceptMuteBut").onclick=function(){acceptMute(id);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              if(muteList[id]===0){
+                  cell.innerHTML="<h1 id=confirmRemove style=font-size:12pt;font-family:Arial;>Deseja silenciar "+fList[id]+"?</h1>";
+              }
+              else{
+                  cell.innerHTML="<h1 id=confirmRemove style=font-size:12pt;font-family:Arial;>Deseja voltar a ouvir "+fList[id]+"?</h1>";
+              }
+          }
+          
+          function acceptMute(id){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              if(muteList[id]===0){
+                  cell.innerHTML="<h1 id=successMute style=font-size:12pt;font-family:Arial;color:Green>Sucesso a silenciar "+fList[id]+".</h1>";
+                  muteList[id]=1;
+              }
+              else{
+                    cell.innerHTML="<h1 id=successUnmute style=font-size:12pt;font-family:Arial;color:Green>Pode agora ouvir "+fList[id]+".</h1>";
+                    muteList[id]=0;
+              }
+              timeoutID=window.setTimeout(gOptions,3000);
+              timeouts.push(timeoutID); 
+          }
+          
+          
+          function chooseMensage(){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<p id=1 style=cursor:pointer;font-size:12pt;font-family:Arial; onmouseout=takeBorder(this) onmouseover=putBorder(this) onclick=sendMensage()>Vem ter comigo</p> <p id=2 style=cursor:pointer;font-size:12pt;font-family:Arial; onmouseout=takeBorder(this) onmouseover=putBorder(this) onclick=sendMensage()>Vou embora</p> <p id=3 style=cursor:pointer;font-size:12pt;font-family:Arial; onmouseout=takeBorder(this) onmouseover=putBorder(this) onclick=sendMensage()>Preciso de ajuda!</p>";
+          }
+          
+          function sendMensage(){
+              erase();
+              var timeoutID;
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0).innerHTML="<h1 style=color:Green;font-family:Verdana;font-size:14pt>Mensagem enviada com sucesso.</h1>";
+              msgList.push("Eu//");
+              timeoutID=window.setTimeout(group,3000);
+              timeouts.push(timeoutID);
+          }
+          
+          function receiveMensage(from,mensage){
+              if(muteList[from]===0){
+                erase();
+                document.getElementById("menuName").innerHTML="Mensagem nova";
+                document.getElementById("menuName").style.color="Red";
+                var tab=document.getElementById("menuTable");
+                tab.innerHTML="<p style=font-size:12pt;font-family:Arial;color:blue;margin-top:0in>"+fList[from]+" disse:</p><p>"+mensage+"</p> <p><button onclick=chooseMensage() style=width:1in>Responder</button></p>";
+                
+              }
+          }
+
+          function showInMap(friendID){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img id=map src=mapa2.png style=width:1.45in;height:1.1in;position:relative;top:0px />";
+              var newImg=document.createElement("img");
+              newImg.className="overlay";
+              newImg.src="delete_old.png";
+              newImg.style.width="0.2in";
+              newImg.style.height="0.2in";
+              newImg.style.left=String(Xposition[friendID]+0.3)+"in";
+              newImg.style.top=String(Yposition[friendID]+0.3)+"in";
+              cell.appendChild(newImg);
+              newImg=document.createElement("img");
+              newImg.className="overlay";
+              newImg.src="localizar.png";
+              newImg.style.width="0.2in";
+              newImg.style.height="0.3in";
+              newImg.style.left=String(currentPosition[0]+0.3)+"in";
+              newImg.style.top=String(currentPosition[1]+0.3)+"in";
+              cell.appendChild(newImg);
+              //newImg.onmousedown=function(){resizeElement(newImg,"2in");};
+              //newImg.onmouseup=function(){resizeElement(newImg,"1.1in");};
+              
+          }
+
+          function resizeElement(obj,size){
+            obj.style.height=size;
+          }
+
+          function zoomElement(obj,percent){
+              obj.style.zoom=percent;
+              obj.ondblclick=function(){zoomOutElement(obj);};
+          }
+
+          function zoomOutElement(obj){
+            obj.style.zoom="100%";
+            obj.style.top="0px";
+            obj.style.left="0px";
+            obj.ondblclick=function(){zoomElement(obj,"120%");};
+          }
+
+	function getSrc(url){
+		var url = url.split('/');
+		return url[url.length-1];
+
+	}
+
+      function showMapOpt(){
+                      erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              document.getElementById("menuName").innerHTML="Menu mapa";
+              row.className= row.className + "buttonMenu";
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img id=remFav src=fav_delete.png style=cursor:pointer;width:0.5in;height:0.5in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("remFav").onclick=function(){currentF="favRem";document.getElementById("menuName").innerHTML="Eliminar favorito"; showFavouriteList();};
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=addFav src=fav_add.png style=cursor:pointer;width:0.5in;height:0.5in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("addFav").onclick=function(){currentF="favAdd"; addFavourite();};
+              row=document.getElementById("menuTable").insertRow(0);
+              row.className= row.className + "buttonMenu";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=findFav onclick=searchFavourite() src=magnifying.png style=cursor:pointer;width:0.5in;height:0.5in; solid black; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("findFav").onclick=function(){currentF="catFav";document.getElementById("menuName").innerHTML="Procurar";mapFind(); };
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=seeFav src=favourite.png style=cursor:pointer;width:0.5in;height:0.5in; solid black; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("seeFav").onclick=function(){currentF="favSee";document.getElementById("menuName").innerHTML="Ver favoritos"; showFavouriteList();};
+              
+    }
+
+  function mapFind(){
+
+    $(document.getElementById("menuTable")).fadeOut("fast",function(){
+      erase();
+      var temp=document.getElementById("menuTable");
+      var row=temp.insertRow(0);
+      row.innerHTML="<p id=1 style=cursor:pointer;margin-top:0px;font-size:12pt;font-family:Arial; onclick=showStages()>Palcos</p>";                      
+      row.addEventListener("mouseover", function(){this.style.color="red";});
+      row.addEventListener("mouseout",function(){this.style.color="black";});
+      document.getElementById("1").style.border="1px solid black";
+      row=temp.insertRow(0);
+      row.addEventListener("mouseover", function(){this.style.color="red";});
+      row.addEventListener("mouseout",function(){this.style.color="black";});
+      row.innerHTML="<p id=2 style=cursor:pointer;margin-top:0px;font-size:12pt;font-family:Arial; onclick=showFood()>Comida/bebida</p>";
+      document.getElementById("2").style.border="1px solid black";
+      row=temp.insertRow(0);
+      row.addEventListener("mouseover", function(){this.style.color="red";});
+      row.addEventListener("mouseout",function(){this.style.color="black";});
+      row.innerHTML="<p id=3 style=cursor:pointer;margin-top:0px;font-size:12pt;font-family:Arial; onclick=showWC()>WC</p>";
+      document.getElementById("3").style.border="1px solid black";      
+    })
+    $(document.getElementById("menuTable")).fadeIn("fast");
+
+  }
+
+    function showStages(){
+      $(document.getElementById("menuTable")).fadeOut("fast",function(){
+              erase();
+        currentF="findLocal";
+        document.getElementById("menuName").innerHTML="Palcos";
+        var row=document.getElementById("menuTable").insertRow(0);
+        var cell=row.insertCell(0);
+        cell.innerHTML="<img id=map src=mapa2.png style=width:1.45in;height:1.1in; />";
+      var newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="delete_old.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.2in";
+      newImg.style.left="0.5in";
+      newImg.style.top="0.7in";
+      cell.appendChild(newImg);  
+      newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="localizar.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.3in";
+      newImg.style.left=String(currentPosition[0]+0.3)+"in";
+      newImg.style.top=String(currentPosition[1]+0.3)+"in";
+      cell.appendChild(newImg);  
+      })
+    $(document.getElementById("menuTable")).fadeIn("fast");
+    }
+
+    function showFood(){
+      $(document.getElementById("menuTable")).fadeOut("fast",function(){
+        erase();
+        currentF="findLocal";
+        document.getElementById("menuName").innerHTML="Comida/bebida";
+        var row=document.getElementById("menuTable").insertRow(0);
+        var cell=row.insertCell(0);
+        cell.innerHTML="<img id=map src=mapa2.png style=width:1.45in;height:1.1in; />";
+              var newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="delete_old.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.2in";
+      newImg.style.left="0.8in";
+      cell.appendChild(newImg);
+      newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="localizar.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.3in";
+      newImg.style.left=String(currentPosition[0]+0.3)+"in";
+      newImg.style.top=String(currentPosition[1]+0.3)+"in";
+      cell.appendChild(newImg);        
+      })
+     $(document.getElementById("menuTable")).fadeIn("fast");
+    }
+
+    function showWC(){
+
+      $(document.getElementById("menuTable")).fadeOut("fast",function(){
+        erase();
+        currentF="findLocal";
+        document.getElementById("menuName").innerHTML="Wc";
+        var row=document.getElementById("menuTable").insertRow(0);
+        var cell=row.insertCell(0);
+        cell.innerHTML="<img id=map src=mapa2.png style=width:1.45in;height:1.1in; />";
+            var newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="delete_old.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.2in";
+      newImg.style.left="0.5in";
+      newImg.style.top="1.3in";
+      cell.appendChild(newImg); 
+      newImg=document.createElement("img");
+      newImg.className="overlay";
+      newImg.src="localizar.png";
+      newImg.style.width="0.2in";
+      newImg.style.height="0.3in";
+      newImg.style.left=String(currentPosition[0]+0.3)+"in";
+      newImg.style.top=String(currentPosition[1]+0.3)+"in";
+      cell.appendChild(newImg);        
+      })
+     $(document.getElementById("menuTable")).fadeIn("fast");
+    }
+    
+    function addFavourite(){
+      $(document.getElementById("menuTable")).fadeOut("fast",function(){
+               erase();
+        var timeoutID;
+        erase();
+        currentF="favAdd";
+        var fName=favGenerator();
+        document.getElementById("menuName").innerHTML="Adicionar local"
+        document.getElementById("menuTable").innerHTML="<h1 id=waitConnect style=font-size:1em;font-family:serif>A detectar, por favor aguarde.</h1><img id=loadingBar src=loading_bar.gif style=width:1.4in /> ";
+        timeoutID=window.setTimeout(cancelAddFav,3000);
+        timeouts.push(timeoutID);
+        document.getElementById("loadingBar").onclick=function(){window.clearTimeout(timeoutID); 
+                                                                  if(!isAdded(fName,favPlaces)){
+                                                                    confirmAddFav(fName);
+                                                                  }
+                                                                  else{
+                                                                    document.getElementById("menuTable").innerHTML="<tr><td><h1 style=font-size:1em;><h1 style=font-size:1em;color:Red>Insucesso:</h1>"+fName+" já adicionado aos favoritos.</h1></td></tr>";
+                                                                     timeoutID=setTimeout(function(){goBack();},3000);
+                                                                      timeouts.push(timeoutID);
+                                                                  } 
+                                                                }; 
+      })
+$(document.getElementById("menuTable")).fadeIn("fast");
+
+    }
+    function showFavouriteList(){
+
+      $(document.getElementById("menuTable")).fadeOut("fast",function(){
+            erase()
+              if(favPlaces.length<=0){
+                  document.getElementById("menuTable").innerHTML="<h1 style=font-size:0.8em>Nao tem locais favoritos.\n Adicione agora.</h1> <img id=addFav onclick=addFavourite() src=fav_add.png style=width:0.5in;height:0.5in;margin-left:0.5in; />";
+                  document.getElementById("addFav").style.border="1px solid black;";
+
+              }
+              else{
+                      var row=document.getElementById("menuTable").insertRow(0);
+                      var cell=row.insertCell(0);
+                      var img=document.createElement("img");
+                      img.src="GUgfkDw.png";
+                      img.className="arrow";
+                      img.style.marginLeft="0.2in";
+                      img.style.marginTop="0in";
+                      img.onclick = function() {goRightOnFavList();};
+                      if(favPlaces.length<4 || fListPos+3>=favPlaces.length){
+                          img.style.display="none";
+                      }
+                      cell.appendChild(img);
+                      cell=row.insertCell(0);
+                      cell.id="favList";
+                  for(var i=fListPos;i<favPlaces.length;i++){
+                      var p=document.createElement("p");
+                      p.id=i;
+                      p.style.border="1px solid black";
+                      p.style.marginTop="0px";
+                      p.style.cursor="pointer";
+                      p.style.fontSize="12pt";
+                      p.style.fontFamily="Arial";
+                      p.innerHTML=favPlaces[i];
+                      p.addEventListener("mouseover", function(){this.style.color="red";});
+                      p.addEventListener("mouseout",function(){this.style.color="black";});
+                      p.onclick = function(){ locationAction(this.id); };
+                      
+                      if(i<fListPos+3){
+                      cell.appendChild(p);
+                      }
+                  }
+                  cell=row.insertCell(0);
+                  img=document.createElement("img");
+                  img.src="WMP0o4m.png";
+                  img.className="arrow";
+                  img.onclick=function () {goLeftOnFavList();};
+                  if(fListPos>0){
+                      cell.appendChild(img);
+                  }
+
+              }        
+      })
+ $(document.getElementById("menuTable")).fadeIn("fast");   
+
+    }
+              function goRightOnFavList(){
+                  erase();
+                  fListPos+=3;
+                  showFavouriteList();
+              }
+              function goLeftOnFavList(){
+                  erase();
+                  fListPos-=3;
+                  showFavouriteList();                  
+              }
+              
+              function locationAction(locId){
+                  if(currentF==="favRem"){
+                      acceptRemove(favPlaces[locId]);
+                      favPlaces.splice(locId,1);
+                  }
+                  else if(currentF==="favSee"){
+                      showFavLoc(locId);
+                  }
+              }
+              
+              function balance(){
+              $(document.getElementById("menuTable")).fadeOut("fast",function(){
+                  erase();
+                  currentF="balance";
+                  document.getElementById("menuName").innerHTML="Ver saldo";
+                  var row=document.getElementById("menuTable").insertRow(0);
+                  var cell=row.insertCell(0);
+                  cell.innerHTML="<h1 style=color:green;font-size:20pt;font-family:Arial> Saldo\n"+"+"+balanceVal.toFixed(2)+"€</h1> ";                
+              })
+ $(document.getElementById("menuTable")).fadeIn("fast");  
+              }
+              
+              function pay(){
+                $(document.getElementById("menuTable")).fadeOut("fast",function(){
+                  erase();
+                  currentF="pay";
+                  document.getElementById("menuName").innerHTML="Pagar";
+                  var timeoutID;
+                  document.getElementById("menuTable").innerHTML="<p id=waitConnect style=font-size:12pt;font-family:serif> Por favor aproxime o seu iRave ao sensor de pagamento</h1><img id=loadingBar src=loading_bar.gif style=width:1.4in /> ";
+                  timeoutID=window.setTimeout(cancelPay,3000);
+                  timeouts.push(timeoutID);
+                  document.getElementById("loadingBar").onclick=function(){window.clearTimeout(timeoutID); confirmPay();};                  
+                })
+ $(document.getElementById("menuTable")).fadeIn("fast"); 
+              }
+              
+            function cancelPay(){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+
+              cell.innerHTML="<h1 id=failedConnect style=font-size:14pt;font-family:Arial;color:red>Insucesso a executar pagamento!</h1>";
+              timeoutID=window.setTimeout(Payment,3000);
+              timeouts.push(timeoutID);
+
+
+          }
+            
+            
+            function confirmPay(){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              var rand=Math.ceil(Math.random()*3);
+              var product=productStock[rand];
+              var price=prices[rand];
+              cell.innerHTML="<img onclick=cancelPay() onmouseout=takeBorder(this) onmouseover=putBorder(this) src=delete_old.png style=width:0.4in;height:0.3in; />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptBut onmouseout=takeBorder(this) onmouseover=putBorder(this)  src=tick.png style=width:0.4in;height:0.3in; />";
+              document.getElementById("acceptBut").onclick=function(){acceptPay(product,price);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              cell.innerHTML="<h1 id=confirmConnect style=font-size:12pt;font-family:Arial>Deseja comprar "+product+" por "+ price+"€?</h1>";
+                
+                
+            } 
+            
+            
+            function acceptPay(product,price){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              if(balanceVal-price>=0){
+                  cell.innerHTML="<h1 id=sucessConnect style=font-size:14pt;font-family:Arial;color:Green>Pagamento feito com sucesso.</h1>";
+                  timeoutID=window.setTimeout(Payment,3000);
+                  timeouts.push(timeoutID);
+                  balanceVal-=price;
+                  payments.push(String(product)+"        -"+String(price)+"€");
+              }
+              else{
+                  cell.innerHTML="<h1 id=insuficcientFund style=font-size:1em>Saldo insuficiente. Carregue se faz favor.</h1>";
+              }
+            }
+            
+            
+            
+              function consult(){
+                $(document.getElementById("menuTable")).fadeOut("fast",function(){
+                  erase();
+                  currentF="consult";
+                  document.getElementById("menuName").innerHTML="Movimentos";
+                                if(payments.length<=0){
+                  document.getElementById("menuTable").innerHTML="<h1 style=font-size:14pt;font-family:Arial>Ainda não efectuou pagamentos</h1>";
+                  document.getElementById("addFav").style.border="1px solid black;";
+
+              }
+              else{
+                      var row=document.getElementById("menuTable").insertRow(0);
+                      var cell=row.insertCell(0);
+                      var img=document.createElement("img");
+                      img.src="GUgfkDw.png";
+                      img.className="arrow";
+                      img.style.marginLeft="0.2in";
+                      img.style.marginTop="0in";
+                      img.onclick = function() {goRightOnPayList();};
+                      if(payments.length<4 || fListPos+3>=payments.length){
+                          img.style.display="none";
+                      }
+                      cell.appendChild(img);
+                      cell=row.insertCell(0);
+                      cell.id="payList";
+                  for(var i=fListPos;i<payments.length;i++){
+                      var p=document.createElement("p");
+                      p.id=i;
+                      p.style.fontSize="8pt";
+                      p.style.fontFamily="sans-serif";
+                      p.style.marginTop="0px";
+                      if(parseInt(payments[i].split(" ")[payments[i].split(" ").length-1])<0){
+                        p.style.color="red";
+                      }
+                      else{
+                        p.style.color="green";
+                      }
+                      p.innerHTML=payments[i];
+                      
+                      if(i<fListPos+3){
+                      cell.appendChild(p);
+                      }
+                  }
+                  cell=row.insertCell(0);
+                  img=document.createElement("img");
+                  img.src="WMP0o4m.png";
+                  img.className="arrow";
+                  img.onclick=function () {goLeftOnPayList();};
+                  if(fListPos>0){
+                      cell.appendChild(img);
+                  }
+
+              }                
+                })
+     $(document.getElementById("menuTable")).fadeIn("fast"); 
+
+             }
+             
+            function goRightOnPayList(){
+                  erase();
+                  fListPos+=3;
+                  consult();
+              }
+              function goLeftOnPayList(){
+                  erase();
+                  fListPos-=3;
+                  consult();                  
+              }
+
+              function moneyCharge(quant){
+                balanceVal+=quant;
+                payments.push("Carregamento +"+String(quant)+"€");
+              }
+
+
+              function showFavLoc(iD){
+              erase();
+              var row=document.getElementById("menuTable").insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img id=map src=mapa2.png style=width:1.45in;height:1.1in;position:relative;top:0px />";
+              var newImg=document.createElement("img");
+              newImg.className="overlay";
+              newImg.src="delete_old.png";
+              newImg.style.width="0.2in";
+              newImg.style.height="0.2in";
+              newImg.style.left=String(favPlacesX[iD]+0.3)+"in";
+              newImg.style.top=String(favPlacesY[iD]+0.3)+"in";
+              cell.appendChild(newImg);
+              newImg=document.createElement("img");
+              newImg.className="overlay";
+              newImg.src="localizar.png";
+              newImg.style.width="0.2in";
+              newImg.style.height="0.3in";
+              newImg.style.left=String(currentPosition[0]+0.3)+"in";
+              newImg.style.top=String(currentPosition[1]+0.3)+"in";
+              cell.appendChild(newImg);
+              //newImg.onmousedown=function(){resizeElement(newImg,"2in");};
+              //newImg.onmouseup=function(){resizeElement(newImg,"1.1in");};
+              
+          }
+
+          function favGenerator(){
+            var favName=["Cotton C.","BardaBola","BardeCivil","Tasca de LEIC"];
+            return favName[Math.ceil(Math.random()*3)];
+          }
+
+            function cancelAddFav(){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+
+              cell.innerHTML="<h1 id=failedConnect style=font-size:14pt;color:Red;font-family:Arial;>Insucesso a adicionar local.</h1>";
+              timeoutID=window.setTimeout(showMapOpt,3000);
+              timeouts.push(timeoutID);
+              
+              
+          }
+
+            function confirmAddFav(fName){
+              erase();
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+              cell.innerHTML="<img onclick=cancelAddFav() src=delete_old.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              cell=row.insertCell(0);
+              cell.innerHTML="<img id=acceptBut src=tick.png style=cursor:pointer;width:0.4in;height:0.3in; onmouseout=takeBorder(this) onmouseover=putBorder(this) />";
+              document.getElementById("acceptBut").onclick=function(){acceptAddFav(fName);};
+              row=temp.insertRow(0);
+              cell=row.insertCell(0);
+              cell.colSpan="2";
+              cell.innerHTML="<h1 id=confirmConnect style=font-size:10pt;font-family:Arial>Adicionar "+fName+" como favorito?</h1>";
+          }
+
+            function acceptAddFav(fName){
+              erase();
+              var timeoutID;
+              var temp=document.getElementById("menuTable");
+              var row=temp.insertRow(0);
+              var cell=row.insertCell(0);
+                favPlaces.push(fName);
+                favPlacesX.push(Math.random());
+                favPlacesY.push(Math.random());
+                cell.innerHTML="<h1 id=failedConnect style=font-size:14pt;color:Green;font-family:Arial;>Sucesso a adicionar local.</h1>";
+                timeoutID=window.setTimeout(showMapOpt,3000);
+                timeouts.push(timeoutID);
+              
+          }
+
+          function isAdded(obj,vect){
+            if(vect.indexOf(obj)!=-1){
+              return true;
+              }
+              return false;
+          }
+
+          function home(){
+
+                          for (var i=0; i<timeouts.length; i++) {
+                  clearTimeout(timeouts[i]);
+                }
+              
+              document.getElementById("menuName").style.color="Black";
+              document.getElementById("helpBut").style.display="inline";
+              
+              if(currentF==="Map" || currentF==="MapOpt" || currentF==="favAdd" || currentF==="favRem" || currentF==="favSee" || currentF==="catFav" || currentF==="findLocal"){
+                 currentF="MenuI";
+                  goToMain();
+                  document.getElementById("enterChore").src="map-7.png";
+                   document.getElementById("menuName").innerHTML="Menu mapa";
+              }
+              else if(currentF==="Payment" || currentF==="balance" || currentF==="pay" || currentF==="consult"){
+                currentF="MenuI";
+                  goToMain();
+                  document.getElementById("enterChore").src="acceptedatmsymbol_full.png";
+                   document.getElementById("menuName").innerHTML="Menu pagar";
+
+              }
+              else{
+                currentF="MenuI";
+                goToMain();
+              }
+          }
+
+      </script>
+        
+        
+    </html>
